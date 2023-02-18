@@ -73,3 +73,14 @@ return true
 function isLeapYear(year) { 
   return (year % 100 !== 0 && year % 4 === 0) || year % 400 === 0;
 }
+
+
+
+var findDigit = function(num, nth){
+  if(Math.abs(num).toString().length<nth){
+    return 0
+  }else if(nth <= 0){
+    return -1
+  }
+    return Number(Math.abs(num).toString().split('').reverse()[nth-1])
+}
