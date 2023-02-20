@@ -312,3 +312,292 @@ function getDivisorsCnt(n){
     }
   return myList.length
 }
+
+
+function checkExam(array1, array2) {
+  let res = 0;
+  for(let i = 0; i < array1.length; i++){
+    if(array2[i]== ''){
+      continue
+    }else if(array1[i] == array2[i]){
+      res += 4;
+    }else {
+      res -=1
+    }
+  }
+  if(res < 0){
+    return 0;
+  }else{
+    return res
+  }
+}
+
+
+function unusualFive() {
+  const five = 'abcde';
+ return  five.length
+ 
+}
+
+
+function findDifference(a, b) {
+  let result = a.reduce((acc,el)=>acc*el)-b.reduce((acc,el)=>acc*el);
+  if(result < 0){
+    return result * -1
+  } else {
+    return result
+  }
+}
+
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length*width*height
+  }
+}
+
+function productFib(prod){
+  const myList = [0,1,1];
+  let i = 0;
+  while(myList[i+1]*myList[i+2] < prod){
+    myList.push(myList[i+1]+myList[i+2])
+    i++;
+  }
+  let myProd = myList.slice(-2).reduce((acc,el)=>acc*el);
+  const result = myList.slice(-2);
+  if(myProd == prod){
+    result.push(true)
+  }else{
+    result.push(false)
+  }
+  return result
+}
+
+function findMultiples(integer, limit) {
+  const result = [];
+  let add = integer;
+  while(add <= limit){
+    result.push(add);
+    add += integer;
+  }
+  return result
+}
+
+function arithmetic(a, b, operator){
+  const op = {
+    'add': a+b,
+    'subtract': a-b,
+    'multiply': a*b,
+    'divide': a/b
+  }
+  return op[operator]
+}
+
+var laLigaGoals = 43;
+var championsLeagueGoals = 10;
+var copaDelReyGoals = 5;
+
+var totalGoals = laLigaGoals + championsLeagueGoals + copaDelReyGoals;
+
+
+function bmi(weight, height) {
+  const myBmi = weight/(height*height);
+  if(myBmi <= 18.5){
+  return "Underweight";
+    }else if(myBmi<=25.0){
+      return "Normal";
+    }else if(myBmi<=30.0){
+      return  "Overweight";
+    }else{
+      return "Obese"
+    }
+  
+}
+
+function sumArray(array) {
+  if(!array || array.length<3){
+    return 0
+  }else {
+    array.sort((a,b)=> a-b);
+    array.pop();
+    array.shift();
+    return array.reduce((acc,v)=>acc+v)
+  }
+}
+
+const sequenceSum = (begin, end, step) => {
+  let sum = 0;
+  for(let i = begin; i <= end; i+=step){
+    sum += i
+  }
+  return sum
+};
+
+function index(array, n){
+  if(array.length <= n){
+    return -1
+  }else{
+    return Math.pow(array[n],n)
+  }
+}
+
+var humanYearsCatYearsDogYears = function(humanYears) {
+  const one = [1,15,15];
+  const two = [2,24,24];
+  if(humanYears == 1){
+    return one;
+  }else if(humanYears == 2){
+    return two;
+  }else if(humanYears == 0){
+    return [0,0,0];
+  }else{
+    return [humanYears,((humanYears-2)*4)+24,((humanYears-2)*5)+24]
+  }
+  
+  
+}
+
+function findNextSquare(sq) {
+  if(Number.isInteger(Math.sqrt(sq))){
+    return (Math.sqrt(sq)+1) * (Math.sqrt(sq)+1);
+  }else {
+    return -1
+  }
+  
+}
+
+function zero(f) {return f ? f(0) : 0;}
+function one(f) {return f ? f(1) : 1;}
+function two(f) {return f ? f(2) : 2;}
+function three(f) {return f ? f(3) : 3;}
+function four(f) {return f ? f(4) : 4;}
+function five(f) {return f ? f(5) : 5;}
+function six(f) {return f ? f(6) : 6;}
+function seven(f) {return f ? f(7) : 7;}
+function eight(f) {return f ? f(8) : 8;}
+function nine(f) {return f ? f(9) : 9;}
+
+function plus(b) {return function(a) { return a + b; };}
+function minus(b) {return function(a) {return a - b; };}
+function times(b) {return function(a) {return a * b; };}
+function dividedBy(b) {return function(a) { return Math.floor(a / b); };}
+
+function litres(time) {
+  return Math.floor(time/2);
+}
+
+
+function expandedForm(num) {
+  num = (num+'').split('');
+  let count = num.length-1;
+  while(count > 0){
+    for(let i = 0; i < num.length; i++){
+      if(num[i] !== '0'){
+      num[i] = num[i] + '0'.repeat(count);
+        }
+      count--;
+      
+    }
+  }
+  return num.filter(elem => elem !== '0').join(" + ");
+}
+
+unction findOdd(A) {
+  function count(val) {
+    return A.filter(function(a){return a==val;}).length;
+  }
+  for(let i = 0; i < A.length; i++){
+    if(count(A[i])%2 !== 0){
+      return A[i];
+    }
+  }
+}
+
+function tribonacci(signature,n){
+  if(n === 0){
+    return []
+  } else {
+    for(let i = 3; i < n; i++){
+      signature.push(signature[i-3]+signature[i-2]+signature[i-1])
+    }
+    return signature.slice(0,n)
+  }
+}
+
+
+var number = function(busStops){
+  let add = 0;
+  let exit = 0;
+  for(let i = 0; i < busStops.length; i++){
+    add += busStops[i][0];
+    exit += busStops[i][1];
+  }
+  return add - exit
+}
+
+function oddOrEven(array) {
+  if(array == []||array == [0]){
+    return "even";
+  }
+  else if(array.reduce((a,b)=>a+b,0)%2 !== 0) {
+  return "odd";
+} else {
+  return "even";
+}
+}
+
+function squareDigits(num){
+  let mnum = num + "";
+  mnum = mnum.split("");
+  for(let i = 0; i < mnum.length; i++){
+    mnum[i] = +mnum[i];
+    mnum[i] = Math.pow(mnum[i], 2) + "";
+  }
+  mnum = mnum.join("");
+  
+  return Number(mnum);
+}
+
+function sum (numbers) {
+  if(numbers == []){
+    return 0;
+  } else {
+    return numbers.reduce((a, b) => a + b, 0);
+  }
+  
+  
+};
+
+function simpleMultiplication(number) {
+  if(number%2 === 0){
+    return number*8;
+  } else {
+    return number*9;
+  }
+}
+
+function squareSum(numbers){
+  let result = 0;
+  for(let i = 0; i < numbers.length; i++){
+    numbers[i] = Math.pow(numbers[i],2);
+    result += numbers[i];
+  };
+  
+  return result;
+}
+
+function past(h, m, s){
+  let i = 0;
+  if (0 <= h <= 23) {
+    h = h * 3600000;
+  } else return;
+  if (0 <= m <= 59) {
+    m = m * 60000;
+  } else return;
+  if (0 <= s <= 59) {
+    s = s * 1000
+  } else return ;
+  
+  return  i + h + m + s ;
+  
+  //#Happy Coding! ^_^
+}
